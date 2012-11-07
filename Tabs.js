@@ -56,7 +56,7 @@
                 });
 
                 if (typeof cb === 'function') {
-                    cb.apply(this, [currentNav, currentItem]);
+                    cb.apply(this, [currentNav, currentItem, index]);
                 }
 
                 return this;
