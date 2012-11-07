@@ -16,6 +16,7 @@
             this.options = $.extend(true, {
                 currentClass: 'tab-current',
                 activeClass: 'js-tabs-active',
+                onShow: function() {},
                 activeTab: 0,
                 selectors: {
                     navTabs: '.tab-nav li',
@@ -38,6 +39,7 @@
                 var currentClass = this.options.currentClass;
                 var currentNav = this.navTabs.eq(index);
                 var currentItem = this.contentItems.eq(index);
+                var cb = this.options.onShow;
 
                 this.contentItems.attr({
                     'aria-expanded': false,
@@ -52,6 +54,10 @@
                     'aria-expanded': true,
                     'aria-hidden': false
                 });
+
+                if (typeof cb === 'function') {
+                    cb.apply(this, [currentNav, currentItem]);
+                }
 
                 return this;
             },

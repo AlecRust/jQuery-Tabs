@@ -43,6 +43,12 @@ tabs.setTabs(2);
     // Is the script active? Useful for applying display: none in 
     // an accessible manner
 	activeClass: 'js-tabs-active',
+
+	// Called every time a tab changes. Passes the current selected nav
+	// and the current showing item
+	onShow: function(currentNav, currentItem) {
+
+	},
 	
     // Which tab to start open
 	activeTab: 0,
